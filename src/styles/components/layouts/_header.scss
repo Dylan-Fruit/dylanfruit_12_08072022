@@ -1,0 +1,26 @@
+.header {
+    background-color: #000;
+    min-width: 1440px;
+    height: 91px;
+    display: flex;
+    img {
+      margin: 18px 0 0 28px;
+      width: 178px;
+      height: 70px;
+      margin-right: 62px;
+      cursor: pointer;
+    }
+    ul {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+      li {
+        color: #FFF;
+        font-size: 24px;
+        font-weight: 500;
+        padding-top: 36px;
+        cursor: pointer;
+      }
+    }
+  }
+  
