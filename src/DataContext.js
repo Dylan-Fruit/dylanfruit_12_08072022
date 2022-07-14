@@ -4,7 +4,7 @@ import {
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCES,
-} from "./Usersdatamocked";
+} from "./UsersDataMocked";
 
 export const DataContext = createContext();
 

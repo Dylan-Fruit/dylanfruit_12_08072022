@@ -1,13 +1,18 @@
-import React from "react";
-import Header from "./components/layouts/Header";
-import Navbar from "./components/layouts/Navbar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import { DataProvider } from "./DataContext";
+import UserChoice from "./pages/UserChoice";
 
 const App = () => {
   return (
-    <div>
-      <Header />
-      <Navbar />
-    </div>
+    <BrowserRouter>
+      <DataProvider>
+        <Routes>
+          <Route path="/" element={<UserChoice />} />
+          <Route path="/user/:id" element={<Home />} />
+        </Routes>
+      </DataProvider>
+    </BrowserRouter>
   );
 };
 
