@@ -77,7 +77,7 @@ const USER_AVERAGE_SESSIONS = [
   },
 ];
 
-const USER_PERFORMANCES = [
+const USER_PERFORMANCE = [
   {
     userId: 12,
     kind: {
@@ -122,5 +122,5 @@ module.exports = {
   USER_MAIN_DATA,
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCES,
+  USER_PERFORMANCE,
 };

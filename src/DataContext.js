@@ -3,7 +3,7 @@ import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
   USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCES,
+  USER_PERFORMANCE,
 } from "./UsersDataMocked";
 
 export const DataContext = createContext();
@@ -49,26 +49,25 @@ export const DataProvider = ({ children }) => {
     return userSessionsApi ? userSessionsApi : userSessionsMocked;
   }
 
-  async function getUserPerformances(id) {
-    let userPerformancesMocked = USER_PERFORMANCES.find(
+  async function getUserPerformance(id) {
+    let userPerformanceMocked = USER_PERFORMANCE.find(
       (item) => item.userId === parseInt(id)
     );
-    const res = await fetch(`${path}/user/${id}/performances`);
-    let userPerfomances = await res.json().catch((error) => {
-      return userPerformancesMocked;
+    const res = await fetch(`${path}/user/${id}/performance`);
+    let userPerformance = await res.json().catch((error) => {
+      return userPerformanceMocked;
     });
+    let userPerformanceApi = userPerformance.data;
 
-    let userPerfomancesApi = userPerfomances.data;
-    return userPerfomancesApi ? userPerfomancesApi : userPerformancesMocked;
+    return userPerformanceApi.data ? userPerformanceApi : userPerformanceMocked;
   }
-
   return (
     <DataContext.Provider
       value={{
         getUserData,
         getUserActivity,
         getUserSessions,
-        getUserPerformances,
+        getUserPerformance,
       }}
     >
       {children}

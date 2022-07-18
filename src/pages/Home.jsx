@@ -6,18 +6,19 @@ import { useParams } from "react-router-dom";
 import Error404 from "../components/Error404";
 import Sideicons from "../components/Sideicons";
 import BarCharts from "../components/BarCharts";
+import RadarCharts from "../components/RadarCharts";
 
 const Home = () => {
   const { id } = useParams();
 
   const dataSeekers = useContext(DataContext);
-  const { getUserData, getUserActivity, getUserSessions, getUserPerformances } =
+  const { getUserData, getUserActivity, getUserSessions, getUserPerformance } =
     dataSeekers;
 
   const [userData, setUserData] = useState([]);
   const [userActivity, setUserActivity] = useState({ data: [] });
   const [userSessions, setUserSessions] = useState({ data: [] });
-  const [userPerformances, setUserPerformances] = useState({ data: [] });
+  const [userPerformance, setUserPerformance] = useState({ data: [] });
 
   useEffect(() => {
     getUserData(id).then((response) => {
@@ -29,10 +30,10 @@ const Home = () => {
     getUserSessions(id).then((response) => {
       setUserSessions(response);
     });
-    getUserPerformances(id).then((response) => {
-      setUserPerformances(response);
+    getUserPerformance(id).then((response) => {
+      setUserPerformance(response);
     });
-  }, [id, getUserData, getUserActivity, getUserSessions, getUserPerformances]);
+  }, [id, getUserData, getUserActivity, getUserSessions, getUserPerformance]);
 
   if (userData.length === 0) {
     return <Error404 />;
@@ -51,7 +52,12 @@ const Home = () => {
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
           <div className="user-stats-container">
-            <BarCharts userActivity={userActivity} />
+            <div className="main-stats-container">
+              <BarCharts userActivity={userActivity} />
+            </div>
+            <div className="second-stats-container">
+              <RadarCharts userPerformance={userPerformance} />
+            </div>
           </div>
           <div className="side-icons-container">
             <Sideicons type="Calories" value={userData.keyData.calorieCount} />
