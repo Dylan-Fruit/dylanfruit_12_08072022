@@ -1,0 +1,43 @@
+.home {
+  .main-container {
+    display: flex;
+    column-gap: 109px;
+  }
+  .main-content-container {
+    display: flex;
+    flex-direction: column;
+    .title {
+      margin: 68px 0 77px 0;
+      h1 {
+        font-size: 48px;
+        line-height: 24px;
+        margin-bottom: 41px;
+        span {
+          color: #ff0101;
+        }
+      }
+    }
+    .stats-container {
+      display: flex;
+      flex-direction: row;
+      gap: 31px;
+      .user-stats-container {
+        display: flex;
+        flex-direction: column;
+        .main-stats-container {
+          margin-bottom: 30px;
+        }
+        .second-stats-container {
+          display: flex;
+          flex-direction: row;
+          gap: 30px;
+        }
+      }
+      .side-icons-container {
+        display: flex;
+        flex-direction: column;
+        gap: 39px;
+      }
+    }
+  }
+}

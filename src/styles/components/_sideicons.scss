@@ -1,0 +1,22 @@
+.side-icon {
+  width: 258px;
+  height: 124px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  &-text {
+    display: flex;
+    flex-direction: column;
+  }
+  &-unit {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 2px;
+  }
+  &-title {
+    font-size: 14px;
+    line-height: 24px;
+    color: #74798c;
+    font-weight: 500;
+  }
+}

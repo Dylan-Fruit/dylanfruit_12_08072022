@@ -7,6 +7,7 @@ import Error404 from "../components/Error404";
 import Sideicons from "../components/Sideicons";
 import BarCharts from "../components/BarCharts";
 import RadarCharts from "../components/RadarCharts";
+import LineCharts from "../components/LineCharts";
 
 const Home = () => {
   const { id } = useParams();
@@ -51,22 +52,31 @@ const Home = () => {
             </h1>
             <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
           </div>
-          <div className="user-stats-container">
-            <div className="main-stats-container">
-              <BarCharts userActivity={userActivity} />
+          <div className="stats-container">
+            <div className="user-stats-container">
+              <div className="main-stats-container">
+                <BarCharts userActivity={userActivity} />
+              </div>
+              <div className="second-stats-container">
+                <LineCharts userSessions={userSessions} />
+                <RadarCharts userPerformance={userPerformance} />
+              </div>
             </div>
-            <div className="second-stats-container">
-              <RadarCharts userPerformance={userPerformance} />
+            <div className="side-icons-container">
+              <Sideicons
+                type="Calories"
+                value={userData.keyData.calorieCount}
+              />
+              <Sideicons
+                type="Proteines"
+                value={userData.keyData.proteinCount}
+              />
+              <Sideicons
+                type="Glucides"
+                value={userData.keyData.carbohydrateCount}
+              />
+              <Sideicons type="Lipides" value={userData.keyData.lipidCount} />
             </div>
-          </div>
-          <div className="side-icons-container">
-            <Sideicons type="Calories" value={userData.keyData.calorieCount} />
-            <Sideicons type="Proteines" value={userData.keyData.proteinCount} />
-            <Sideicons
-              type="Glucides"
-              value={userData.keyData.carbohydrateCount}
-            />
-            <Sideicons type="Lipides" value={userData.keyData.lipidCount} />
           </div>
         </div>
       </div>

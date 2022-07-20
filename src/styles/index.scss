@@ -1,6 +1,10 @@
-@import './settings';
-@import '././components/layouts/header';
-@import '././components/layouts/navbar';
-@import '././components/error404';
-@import '././components/barCharts';
-@import '././components/radarCharts';
+@import "./settings";
+@import "././components/layouts/header";
+@import "././components/layouts/navbar";
+@import "././pages/home";
+@import "././pages/userchoice";
+@import "././components/error404";
+@import "././components/barCharts";
+@import "././components/radarCharts";
+@import "././components/lineCharts";
+@import "././components/sideicons";

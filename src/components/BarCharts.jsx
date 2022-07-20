@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from "recharts";
 import propTypes from "prop-types";
 
@@ -27,11 +28,7 @@ const BarCharts = ({ userActivity }) => {
 
   return (
     <div className="bar-chart">
-      <h2 className="bar-chart-title">Activité quotidienne</h2>
-      <ul className="bar-chart-list">
-        <li>Poids (kg)</li>
-        <li>Calories brûlées (kCal)</li>
-      </ul>
+      <p className="bar-chart-activity">Activité quotidienne</p>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={userActivity.sessions}
@@ -66,6 +63,22 @@ const BarCharts = ({ userActivity }) => {
           <Tooltip
             content={<CustomTooltip />}
             cursor={{ fill: "#C4C4C4", width: 56, transform: "translate(28)" }}
+          />
+          <Legend
+            verticalAlign="top"
+            align="right"
+            iconType={"circle"}
+            iconSize={8}
+            formatter={(value) =>
+              value === "kilogram" ? (
+                <span className="bar-chart-weight">Poids (kg)</span>
+              ) : (
+                <span className="bar-chart-calories">
+                  Calories brûlées (kCal)
+                </span>
+              )
+            }
+            height={100}
           />
           <Bar
             yAxisId="kilogram"
