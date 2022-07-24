@@ -8,6 +8,7 @@ import Sideicons from "../components/Sideicons";
 import BarCharts from "../components/BarCharts";
 import RadarCharts from "../components/RadarCharts";
 import LineCharts from "../components/LineCharts";
+import RadialBarCharts from "../components/RadialBarCharts";
 
 const Home = () => {
   const { id } = useParams();
@@ -60,6 +61,7 @@ const Home = () => {
               <div className="second-stats-container">
                 <LineCharts userSessions={userSessions} />
                 <RadarCharts userPerformance={userPerformance} />
+                <RadialBarCharts userData={userData} />
               </div>
             </div>
             <div className="side-icons-container">

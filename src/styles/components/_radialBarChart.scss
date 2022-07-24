@@ -1,0 +1,39 @@
+.radial-bar-chart {
+  width: 258px;
+  height: 263px;
+  &-circle {
+    width: 159px;
+    height: 159px;
+    position: relative;
+    margin: 24px;
+  }
+  &-score {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    color: #20253a;
+    padding: 24px 0 0 30px;
+  }
+  &-legend {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 19%;
+    top: -22px;
+    height: 56px;
+    width: 95px;
+    &-value {
+      font-size: 26px;
+      font-weight: 700;
+      color: #282d30;
+      text-align: center;
+    }
+    &-text {
+      font-size: 16px;
+      line-height: 26px;
+      color: #74798c;
+      text-align: center;
+    }
+  }
+}

@@ -26,8 +26,8 @@ const LineCharts = ({ userSessions }) => {
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
-        <div className="custom-tooltip">
-          <p className="custom-tooltip-label">{`${payload[0].value} min`}</p>
+        <div className="line-chart-tooltip">
+          <p className="line-chart-tooltip-label">{`${payload[0].value} min`}</p>
         </div>
       );
     }

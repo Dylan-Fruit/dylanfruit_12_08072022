@@ -1,15 +1,25 @@
 .line-chart {
-    width: 258px;
-    height: 263px;
-    border-radius: 5px;
-    background-color: #ff0000;
-    &-title{
-        font-size: 15px;
-        color: #ffffff;
-        opacity: 0.5;
-        width: 147px;
-        height: 48px;
-        line-height: 24px;
-        margin: 28px 0 0 34px;
+  width: 258px;
+  height: 263px;
+  border-radius: 5px;
+  background-color: #ff0000;
+  &-title {
+    font-size: 15px;
+    color: #ffffff;
+    opacity: 0.5;
+    width: 147px;
+    height: 48px;
+    line-height: 24px;
+    margin: 28px 0 0 34px;
+  }
+  &-tooltip {
+    width: 39px;
+    height: 25px;
+    background-color: #ffffff;
+    &-label {
+      font-size: 8px;
+      line-height: 24px;
+      text-align: center;
     }
+  }
 }
