@@ -4,6 +4,11 @@ import swimicon from "../../assets/swimicon.svg";
 import cyclingicon from "../../assets/cyclingicon.svg";
 import musculationicon from "../../assets/musculationicon.svg";
 
+/**
+ * Navbar component layout
+ * @returns {JSX}
+ */
+
 const Navbar = () => {
   return (
     <div className="navbar">

@@ -10,6 +10,12 @@ import {
 } from "recharts";
 import propTypes from "prop-types";
 
+/**
+ * LineCharts component
+ * @param {Object} userSessions
+ * @returns {JSX}
+ */
+
 const LineCharts = ({ userSessions }) => {
   const days = {
     1: "L",
@@ -23,6 +29,12 @@ const LineCharts = ({ userSessions }) => {
 
   const DaysChange = (item) => days[item];
 
+  /**
+   * Customtooltip with sessions duration
+   * @param {Boolean} active
+   * @param {Array} payload
+   * @returns {JSX}
+   */
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
@@ -34,6 +46,10 @@ const LineCharts = ({ userSessions }) => {
     return null;
   };
 
+  /**
+   * Customlegend with chart title
+   * @returns {JSX}
+   */
   const CustomLegend = () => {
     return (
       <div>

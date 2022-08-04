@@ -5,6 +5,13 @@ import proteinicon from "../assets/proteinicon.svg";
 import lipideicon from "../assets/lipideicon.svg";
 import propTypes from "prop-types";
 
+/**
+ * Side icons components
+ * @param {string} type
+ * @param {number} value 
+ * @returns {JSX}
+ */
+
 const Sideicons = ({ type, value }) => {
   let statsIcons = {
     Calories: calorieicon,

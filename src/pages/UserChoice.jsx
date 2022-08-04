@@ -3,11 +3,16 @@ import { NavLink } from "react-router-dom";
 import Header from "../components/layouts/Header";
 import Navbar from "../components/layouts/Navbar";
 
+/**
+ * User choice page
+ * @returns {JSX}
+ */
+
 const UserChoice = () => {
   return (
-    <div className="user-choice">
+    <div className="home">
       <Header />
-      <div className="main-container">
+      <div className="main">
         <Navbar />
         <div className="user-link">
           <NavLink to="/user/12">

@@ -11,6 +11,13 @@ import {
 } from "recharts";
 import propTypes from "prop-types";
 
+/**
+ * CustomTooltip with kg & kCal values
+ * @param {Boolean} active
+ * @param {Array} payload
+ * @returns {JSX}
+ */
+
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -22,6 +29,12 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null;
 };
+
+/**
+ * BarCharts component
+ * @param {Object} userActivity
+ * @returns {JSX}
+ */
 
 const BarCharts = ({ userActivity }) => {
   const formatDay = (item) => new Date(item).getDate();

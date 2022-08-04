@@ -7,6 +7,12 @@ import {
 } from "recharts";
 import propTypes from "prop-types";
 
+/**
+ * RadialBarCharts component
+ * @param {Object} userData
+ * @returns {JSX}
+ */
+
 const RadialBarCharts = ({ userData }) => {
   const data = [
     {
@@ -19,6 +25,10 @@ const RadialBarCharts = ({ userData }) => {
     },
   ];
 
+  /**
+   * Customlegend with percentage of the objectives
+   * @returns {JSX}
+   */
   const CustomLegend = () => {
     return (
       <div className="radial-bar-chart-legend">
@@ -50,11 +60,7 @@ const RadialBarCharts = ({ userData }) => {
               dataKey="uv"
               cornerRadius={5}
             />
-            <Legend
-              verticalAlign="middle"
-              //align="center"
-              content={<CustomLegend />}
-            />
+            <Legend verticalAlign="middle" content={<CustomLegend />} />
           </RadialBarChart>
         </ResponsiveContainer>
       </div>

@@ -7,8 +7,21 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import propTypes from "prop-types";
+import Loader from "./Loader";
+
+/**
+ * RadarCharts component
+ * @param {Object} userPerformance
+ * @returns {JSX}
+ */
 
 const RadarCharts = ({ userPerformance }) => {
+  /**
+   * Translate elements in french
+   * @param {string} kind
+   * @returns string
+   */
+
   const trad = (kind) => {
     switch (kind) {
       case "cardio":
@@ -28,10 +41,20 @@ const RadarCharts = ({ userPerformance }) => {
     }
   };
 
+  /**
+   * Search in the data the element kind to apply the traduction fonction on the elements
+   * @param {string} element
+   * @returns string
+   */
+
   const data = userPerformance.data.map((element) => ({
     ...element,
     kind: trad(userPerformance.kind[element.kind]),
   }));
+
+  if (userPerformance.data.length === 0) {
+    return <Loader />;
+  }
 
   return (
     <div className="radar-chart">

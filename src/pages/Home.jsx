@@ -3,12 +3,17 @@ import { DataContext } from "../DataContext";
 import Header from "../components/layouts/Header";
 import Navbar from "../components/layouts/Navbar";
 import { useParams } from "react-router-dom";
-import Error404 from "../components/Error404";
+import Loader from "../components/Loader";
 import Sideicons from "../components/Sideicons";
 import BarCharts from "../components/BarCharts";
 import RadarCharts from "../components/RadarCharts";
 import LineCharts from "../components/LineCharts";
 import RadialBarCharts from "../components/RadialBarCharts";
+
+/**
+ * Home Page
+ * @returns {JSX}
+ */
 
 const Home = () => {
   const { id } = useParams();
@@ -38,7 +43,7 @@ const Home = () => {
   }, [id, getUserData, getUserActivity, getUserSessions, getUserPerformance]);
 
   if (userData.length === 0) {
-    return <Error404 />;
+    return <Loader />;
   }
 
   return (
