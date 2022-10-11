@@ -7,12 +7,19 @@ OPENCLASSROOMS Project 12 : Build an analytics dashboard with React
 # DEPENDENCIES
 
 NodeJS 16.3.1
+
 React 18.2.0
+
 React-router-dom 6.3.0
+
 Recharts 2.1.12
+
 Sass 1.53.0
+
 Jsdoc 3.6.11
+
 Proptypes 15.8.1
+
 yarn 1.22.19 (back end repo)
 
 # Installation
