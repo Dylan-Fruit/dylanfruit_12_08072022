@@ -8,7 +8,7 @@ import propTypes from "prop-types";
 /**
  * Side icons components
  * @param {string} type
- * @param {number} value 
+ * @param {number} value
  * @returns {JSX}
  */
 
@@ -22,7 +22,7 @@ const Sideicons = ({ type, value }) => {
 
   const icon = (item) => statsIcons[item];
   let renderedIcon = icon(type);
-  let unit = value === "Calories" ? "kCal" : "g";
+  let unit = type === "Calories" ? "kCal" : "g";
 
   return (
     <div className="side-icon">
