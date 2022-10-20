@@ -1,4 +1,3 @@
-import { createContext } from "react";
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -6,106 +5,90 @@ import {
   USER_PERFORMANCE,
 } from "./UsersDataMocked";
 
-export const DataContext = createContext();
+const mockedDatas = true;
+const path = "https://localhost:3000";
+
+export const getUserData = async (id) => {
+  let userDataMocked = USER_MAIN_DATA.find((item) => item.id === parseInt(id));
+
+  try {
+    if (mockedDatas) {
+      return userDataMocked;
+    }
+    const response = await fetch(`${path}/user/${id}`);
+    const mainData = await response.json();
+    return mainData.data;
+  } catch (error) {
+    console.log("erreur" + error);
+  }
+};
 
 /**
- * DataProvider
- * @module DataProvider
- * @param {JSX} {children}
- * @returns 4 fonctions
+ * getUserActivity
+ * @function getUserActivity
+ * @param {number} id
+ * @returns userActivityMocked | userActivityApi
  */
 
-export const DataProvider = ({ children }) => {
-  const path = "http://localhost:3000";
-
-  /**
-   * getUserData
-   * @function getUserData
-   * @param {number} id
-   * @returns userDataMocked | userDataApi
-   */
-
-  async function getUserData(id) {
-    let userDataMocked = USER_MAIN_DATA.find(
-      (item) => item.id === parseInt(id)
-    );
-    const res = await fetch(`${path}/user/${id}`);
-    let userData = await res.json().catch((error) => {
-      return userDataMocked;
-    });
-    let userDataApi = userData.data;
-    return userDataApi ? userDataApi : userDataMocked;
-  }
-
-  /**
-   * getUserActivity
-   * @function getUserActivity
-   * @param {number} id
-   * @returns userActivityMocked | userActivityApi
-   */
-
-  async function getUserActivity(id) {
-    let userActivityMocked = USER_ACTIVITY.find(
-      (item) => item.userId === parseInt(id)
-    );
-    const res = await fetch(`${path}/user/${id}/activity`);
-    let userActivity = await res.json().catch((error) => {
-      return userActivityMocked;
-    });
-
-    let userActivityApi = userActivity.data;
-    return userActivityApi ? userActivityApi : userActivityMocked;
-  }
-
-  /**
-   * getUserSessions
-   * @function getUserSessions
-   * @param {number} id
-   * @returns userSessionsMocked | userSessionsApi
-   */
-
-  async function getUserSessions(id) {
-    let userSessionsMocked = USER_AVERAGE_SESSIONS.find(
-      (item) => item.userId === parseInt(id)
-    );
-    const res = await fetch(`${path}/user/${id}/average-sessions`);
-    let userSessions = await res.json().catch((error) => {
-      return userSessionsMocked;
-    });
-
-    let userSessionsApi = userSessions.data;
-    return userSessionsApi ? userSessionsApi : userSessionsMocked;
-  }
-
-  /**
-   * getUserPerformance
-   * @function getUserPerformance
-   * @param {number} id
-   * @returns userPerformanceMocked | userPerformanceApi
-   */
-
-  async function getUserPerformance(id) {
-    let userPerformanceMocked = USER_PERFORMANCE.find(
-      (item) => item.userId === parseInt(id)
-    );
-    const res = await fetch(`${path}/user/${id}/performance`);
-    let userPerformance = await res.json().catch((error) => {
-      return userPerformanceMocked;
-    });
-    let userPerformanceApi = userPerformance.data;
-
-    return userPerformanceApi.data ? userPerformanceApi : userPerformanceMocked;
-  }
-  return (
-    <DataContext.Provider
-      value={{
-        getUserData,
-        getUserActivity,
-        getUserSessions,
-        getUserPerformance,
-      }}
-    >
-      {children}
-    </DataContext.Provider>
+export const getUserActivity = async (id) => {
+  let userActivityMocked = USER_ACTIVITY.find(
+    (item) => item.userId === parseInt(id)
   );
+
+  try {
+    if (mockedDatas) {
+      return userActivityMocked;
+    }
+    const response = await fetch(`${path}/user/${id}/activity`);
+    const activityData = await response.json();
+    return activityData.data;
+  } catch (error) {
+    console.log("erreur" + error);
+  }
+};
+
+/**
+ * getUserSessions
+ * @function getUserSessions
+ * @param {number} id
+ * @returns userSessionsMocked | userSessionsApi
+ */
+
+export const getUserSessions = async (id) => {
+  let userSessionsMocked = USER_AVERAGE_SESSIONS.find(
+    (item) => item.userId === parseInt(id)
+  );
+  try {
+    if (mockedDatas) {
+      return userSessionsMocked;
+    }
+    const response = await fetch(`${path}/user/${id}/average-sessions`);
+    const averageSessionsData = await response.json();
+    return averageSessionsData.data;
+  } catch (error) {
+    console.log("erreur" + error);
+  }
+};
+
+/**
+ * getUserPerformance
+ * @function getUserPerformance
+ * @param {number} id
+ * @returns userPerformanceMocked | userPerformanceApi
+ */
+
+export const getUserPerformance = async (id) => {
+  let userPerformanceMocked = USER_PERFORMANCE.find(
+    (item) => item.userId === parseInt(id)
+  );
+  try {
+    if (mockedDatas) {
+      return userPerformanceMocked;
+    }
+    const response = await fetch(`${path}/user/${id}/performance`);
+    const performanceData = await response.json();
+    return performanceData.data;
+  } catch (error) {
+    console.log("erreur" + error);
+  }
 };

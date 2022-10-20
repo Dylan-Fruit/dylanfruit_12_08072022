@@ -32,29 +32,25 @@ const CustomTooltip = ({ active, payload }) => {
 
 /**
  * BarCharts component
- * @param {Object} userActivity
+ * @param {Object} activity
  * @returns {JSX}
  */
 
-const BarCharts = ({ userActivity }) => {
-  const formatDay = (item) => new Date(item).getDate();
-
+const BarCharts = ({ activity }) => {
   return (
     <div className="bar-chart">
       <p className="bar-chart-activity">Activité quotidienne</p>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          data={userActivity.sessions}
+          width={835}
+          height={320}
+          data={activity}
           margin={{ top: 24, bottom: 23, left: 32, right: 0 }}
           barGap={8}
+          barCategoryGap={54}
         >
           <CartesianGrid vertical={false} strokeDasharray="3 3" />
-          <XAxis
-            dataKey="day"
-            tickLine={false}
-            tickFormatter={formatDay}
-            tickMargin={16}
-          />
+          <XAxis dataKey="day" tickLine={false} tickMargin={16} />
           <YAxis
             yAxisId="kilogram"
             domain={["dataMin-1", "dataMax+2"]}
@@ -116,7 +112,7 @@ const BarCharts = ({ userActivity }) => {
 export default BarCharts;
 
 BarCharts.propTypes = {
-  userActivity: propTypes.object.isRequired,
+  activity: propTypes.array.isRequired,
   active: propTypes.bool,
   payload: propTypes.array,
 };

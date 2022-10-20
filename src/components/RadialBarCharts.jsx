@@ -9,18 +9,18 @@ import propTypes from "prop-types";
 
 /**
  * RadialBarCharts component
- * @param {Object} userData
+ * @param {Number} score
  * @returns {JSX}
  */
 
-const RadialBarCharts = ({ userData }) => {
+const RadialBarCharts = ({ score }) => {
   const data = [
     {
       uv: 100,
       display: "none",
     },
     {
-      uv: userData.todayScore * 100 || userData.score * 100,
+      uv: score.todayScore * 100 || score,
       fill: "#ff0000",
     },
   ];
@@ -33,7 +33,7 @@ const RadialBarCharts = ({ userData }) => {
     return (
       <div className="radial-bar-chart-legend">
         <span className="radial-bar-chart-legend-value">
-          {userData.todayScore * 100 || userData.score * 100}%
+          {score.todayScore * 100 || score}%
         </span>
         <span className="radial-bar-chart-legend-text">de votre objectif</span>
       </div>
@@ -69,7 +69,7 @@ const RadialBarCharts = ({ userData }) => {
 };
 
 RadialBarCharts.propTypes = {
-  userData: propTypes.object.isRequired,
+  score: propTypes.number.isRequired,
 };
 
 export default RadialBarCharts;

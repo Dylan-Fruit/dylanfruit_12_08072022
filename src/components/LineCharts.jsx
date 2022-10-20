@@ -12,23 +12,11 @@ import propTypes from "prop-types";
 
 /**
  * LineCharts component
- * @param {Object} userSessions
+ * @param {Object} sessions
  * @returns {JSX}
  */
 
-const LineCharts = ({ userSessions }) => {
-  const days = {
-    1: "L",
-    2: "M",
-    3: "M",
-    4: "J",
-    5: "V",
-    6: "S",
-    7: "D",
-  };
-
-  const DaysChange = (item) => days[item];
-
+const LineCharts = ({ sessions }) => {
   /**
    * Customtooltip with sessions duration
    * @param {Boolean} active
@@ -62,13 +50,12 @@ const LineCharts = ({ userSessions }) => {
     <div className="line-chart">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={userSessions.sessions}
+          data={sessions}
           margin={{ top: 0, bottom: 12, left: 0, right: 0 }}
         >
           <XAxis
             dataKey="day"
             axisLine={false}
-            tickFormatter={DaysChange}
             tick={{ fill: "#FFFFFF" }}
             tickLine={false}
             tickMargin={0}
@@ -100,7 +87,7 @@ const LineCharts = ({ userSessions }) => {
 };
 
 LineCharts.propTypes = {
-  userSessions: propTypes.object.isRequired,
+  sessions: propTypes.array.isRequired,
   active: propTypes.bool,
   payload: propTypes.array,
 };
